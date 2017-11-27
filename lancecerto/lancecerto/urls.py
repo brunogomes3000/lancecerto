@@ -18,6 +18,7 @@ from django.contrib import admin
 from core import views
 
 urlpatterns = [
-	url(r'^$', views.index),
+	url(r'^$', views.index, name="index"),
+	url(r'^galeriadeitens/$', views.galeriadeitens, name="galeriadeitens"),
     url(r'^admin/', admin.site.urls),
 ]
