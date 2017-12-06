@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+{% block item_ativo %}
+
+			<li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Quem Somos</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'produtos' %}">Produtos
+              <span class="rs-only"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contatos</a>
+            </li> &nbsp; &nbsp; &nbsp; &nbsp; 
+            <li class="nav-item">
+              <a class="nav-link btn" href="{% url 'login' %}">Fazer Login
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn" href="{% url 'cadastro' %}">Cadastre-se</a>
+            </li>
+
+
+{% endblock %}
+
+{% block bloco_variavel %}
+
+      <h1 class="my-4 text-center text-lg-left">Thumbnail Gallery</h1>
+
+      <div class="row text-center text-lg-left">
+
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <a href="{% url 'dados_prod' %}" class="d-block mb-4 h-100">
+            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+          </a>
+        </div>
+      </div>
+
+{% endblock %}

@@ -7,16 +7,14 @@
 
 {% block item_ativo %}
 
-			<li class="nav-item">
-              <a class="nav-link" href="{% url 'index' %}">Início
-                <span class="sr-only">(current)</span>
-              </a>
+			      <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">Início</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Quem somos</a>
+              <a class="nav-link" href="#">Quem Somos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Produtos</a>
+              <a class="nav-link" href="{% url 'produtos' %}">Produtos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contatos</a>
@@ -42,31 +40,36 @@
       <form method="POST" name="fcadastro" id="fcadastro" >
         <h1>Cadastro</h1><br /> 
         <hr />
-        <h5>Etapa 1</h5>
-        <label>Nome do usuário:</label>
-        <input type="text" name="user" class="form-control">
         <div class="row">
           <div class="col-md-8">
-            <label>Email:</label>
-            <input type="text" name="email" class="form-control">
+            <label>Nome do usuário:</label>
+            <input type="text" name="user" class="form-control">
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4"> 
             <label>Apelido:</label>
             <input type="text" name="apelido" class="form-control">
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4">
+        <div class="col-md-8">
+            <label>Email:</label>
+            <input type="text" name="email" class="form-control">
+        </div>
+        <div class="col-md-4">
+            <label>Telefone:</label>
+            <input type="text" name="telefone" class="form-control">
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
             <label>Senha:</label>
             <input type="password" name="password" class="form-control">
           </div>
-          <div class="col-md-4">
+          <div class="col-md-6">
             <label>Confirmar Senha:</label>
             <input type="password" name="confirm_password" class="form-control">
           </div>
         </div>
-        <hr />
-        <h5>Etapa 2</h5>
 
       <a href="{% url 'cadastro' %}"><input type="submit" class="btn btn-success" value="Cadastre-se"></a>
       
