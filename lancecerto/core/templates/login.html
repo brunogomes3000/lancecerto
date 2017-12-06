@@ -16,15 +16,18 @@
               <a class="nav-link" href="#">Quem somos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Serviços</a>
+              <a class="nav-link" href="#">Produtos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contatos</a>
-            </li>
+            </li> &nbsp; &nbsp; &nbsp; &nbsp; 
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'login' %}">Login
+              <a class="nav-link btn" href="{% url 'login' %}">Fazer Login
               	<span class="rs-only"></span>
               </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn" href="{% url 'cadastro' %}">Cadastre-se</a>
             </li>
 
 
@@ -34,13 +37,21 @@
 {% block bloco_variavel %}
 
 	<div class="jumbotron loginbox">
+	<h3>Autenticação</h3><br />
+	<hr />
 		<div class="container">
 			<form method="POST" name="flogin" id="flogin" >
 			<label>Nome do usuário:</label>
-			<input type="text" name="username" id="username" class="form-control">
+			<input type="text" name="login" class="form-control">
 			<label>Senha:</label>
-			<input type="password" id="password" class="form-control">
-			<input type="submit" class="btn btn-success" value="Entrar">
+			<input type="password" name="password" class="form-control">
+			
+      <a href="{% url 'login' %}"><input type="submit" class="btn btn-success" value="Fazer Login"></a>
+      
+      <br />
+
+      <a href="#"><small>Esqueceu sua senha?</small></a>
+
 		</div>
 	</div>
 
