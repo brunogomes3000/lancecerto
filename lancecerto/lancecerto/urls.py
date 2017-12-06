@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^produtos/$', views.produtos, name="produtos"),
     url(r'^dados_prod/$', views.dados_prod, name="dados_prod"),
     url(r'^admin/', admin.site.urls),
+    url(r'^relatoriosvendas/$', views.relatoriosvendas, name="relaoriosvendas"),
 ]
