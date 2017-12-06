@@ -6,7 +6,7 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'index.html')
 
-def galeriadeitens(request):
-    return render(request, 'galeriadeitens.html')
+def login(request):
+    return render(request, 'login.html')
 
 # Create your views here.

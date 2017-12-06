@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+
+{% block item_ativo %}
+
+			<li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">Início
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Quem somos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Serviços</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contatos</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'login' %}">Login
+              	<span class="rs-only"></span>
+              </a>
+            </li>
+
+
+{% endblock %}
+
+
+{% block bloco_variavel %}
+
+	<div class="jumbotron loginbox">
+		<div class="container">
+			<form method="POST" name="flogin" id="flogin" >
+			<label>Nome do usuário:</label>
+			<input type="text" name="username" id="username" class="form-control">
+			<label>Senha:</label>
+			<input type="password" id="password" class="form-control">
+			<input type="submit" class="btn btn-success" value="Entrar">
+		</div>
+	</div>
+
+{% endblock %}
