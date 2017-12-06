@@ -9,4 +9,7 @@ def index(request):
 def login(request):
     return render(request, 'login.html')
 
+def relatoriosvendas(request):
+    return render(request, 'relatoriosvendas.html')
+
 # Create your views here.
