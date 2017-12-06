@@ -23,4 +23,5 @@ urlpatterns = [
 	url(r'^login/$', views.login, name="login"),
     url(r'^cadastro/$', views.cadastro, name="cadastro"),
     url(r'^admin/', admin.site.urls),
+    url(r'^relatoriosvendas/$', views.relatoriosvendas, name="relaoriosvendas"),
 ]
