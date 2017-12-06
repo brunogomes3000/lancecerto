@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+  Cadastre-se | {{ block.super }}
+{% endblock %}
+
+
+{% block item_ativo %}
+
+			<li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">Início
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Quem somos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Produtos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contatos</a>
+            </li> &nbsp; &nbsp; &nbsp; &nbsp; 
+            <li class="nav-item">
+              <a class="nav-link btn" href="{% url 'login' %}">Fazer Login</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link btn" href="{% url 'cadastro' %}">Cadastre-se
+                <span class="rs-only"></span>
+              </a>
+            </li>
+
+
+{% endblock %}
+
+
+{% block bloco_variavel %}
+
+	<div class="jumbotron cadastrobox">
+  <h1>Cadastro</h1><br /> 
+  <hr />
+  <h5>Etapa 1</h5>
+    <div class="container">
+      <form method="POST" name="fcadastro" id="fcadastro" >
+        <label>Nome do usuário:</label>
+        <input type="text" name="user" class="form-control">
+        <div class="row">
+          <div class="col-md-8">
+            <label>Email:</label>
+            <input type="text" name="email" class="form-control">
+          </div>
+          <div class="col-md-4">
+            <label>Apelido:</label>
+            <input type="text" name="apelido" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label>Senha:</label>
+            <input type="password" name="password" class="form-control">
+          </div>
+          <div class="col-md-4">
+            <label>Confirmar Senha:</label>
+            <input type="password" name="confirm_password" class="form-control">
+          </div>
+        </div>
+  <hr />
+  <h5>Etapa 2</h5>
+
+      <a href="{% url 'cadastro' %}"><input type="submit" class="btn btn-success" value="Cadastre-se"></a>
+      
+      <br />
+    </div>
+  </div>
+
+{% endblock %}
+
+<div class="col-md-6"> </div>
+        <div class="col-md-6"> </div>
