@@ -16,7 +16,6 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from core import views
-from django.contrib.auth.views import login 
 
 urlpatterns = [
 	url(r'^$', views.index, name="index"),
@@ -27,4 +26,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^relatoriosvendas/$', views.relatoriosvendas, name="relaoriosvendas"),
     url(r'^gerenciarvendas/$', views.gerenciarvendas, name="gerenciarvendas")
+    url(r'^GerenciarVendas/$', views.GerenciarVendas, name="GerenciarVendas")
 ]

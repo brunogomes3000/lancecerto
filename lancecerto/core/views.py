@@ -16,6 +16,8 @@ def cadastro(request):
     return render(request, 'cadastro.html')
 
 def gerenciarvendas(request):
+
+def GerenciarVendas(request):
 	return render(request, 'GerenciarVendas.html')
 
 def produtos(request):

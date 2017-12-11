@@ -30,3 +30,4 @@ class Produtos(models.Model):
 	class Meta:
 		verbose_name = 'Produto'
 		verbose_name_plural = 'Produtos'
+
