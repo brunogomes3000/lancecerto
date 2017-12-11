@@ -16,7 +16,6 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from core import views
-from django.contrib.auth.views import login 
 
 urlpatterns = [
 	url(r'^$', views.index, name="index"),
@@ -25,5 +24,5 @@ urlpatterns = [
     url(r'^produtos/$', views.produtos, name="produtos"),
     url(r'^dados_prod/$', views.dados_prod, name="dados_prod"),
     url(r'^admin/', admin.site.urls),
-    url(r'^relatoriosvendas/$', views.relatoriosvendas, name="relaoriosvendas"),
+    
 ]
