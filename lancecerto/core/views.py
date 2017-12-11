@@ -15,12 +15,12 @@ def relatoriosvendas(request):
 def cadastro(request):
     return render(request, 'cadastro.html')
 
+def GerenciarVendas(request):
+	return render(request, 'GerenciarVendas.html')
+
 def produtos(request):
     return render(request, 'produtos.html')
 
 def dados_prod(request):
     return render(request, 'dados_prod.html')
-
-
-
 # Create your views here.
