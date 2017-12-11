@@ -22,6 +22,8 @@ urlpatterns = [
 	url(r'^$', views.index, name="index"),
 	url(r'^login/$', views.login, name="login"),
     url(r'^cadastro/$', views.cadastro, name="cadastro"),
+    url(r'^produtos/$', views.produtos, name="produtos"),
+    url(r'^dados_prod/$', views.dados_prod, name="dados_prod"),
     url(r'^admin/', admin.site.urls),
     url(r'^relatoriosvendas/$', views.relatoriosvendas, name="relaoriosvendas"),
     url(r'^GerenciarVendas/$', views.GerenciarVendas, name="GerenciarVendas")

@@ -21,10 +21,12 @@
     <!-- Bootstrap core CSS -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/login.css' %}" rel="stylesheet">
+    <link href="{% static 'css/thumbnail-gallery.css' %}" rel="stylesheet">
+    <link href="{% static 'css/shop-item.css'%}" rel="stylesheet">
 
 
 
-  </head>
+  </head>  
 
   <body>
 
@@ -49,7 +51,7 @@
               <a class="nav-link" href="#">Quem Somos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Produtos</a>
+              <a class="nav-link" href="{% url 'produtos' %}">Produtos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contatos</a>
@@ -58,7 +60,7 @@
               <a class="nav-link" href="{% url 'login' %}">Fazer Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}">Cadastre-se</a>
+              <a class="nav-link" href="{% url 'cadastro' %}">Cadastre-se</a>
             </li>
 
             {% endblock %}
