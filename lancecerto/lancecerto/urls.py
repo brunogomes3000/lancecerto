@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^cadastro/$', views.cadastro, name="cadastro"),
     url(r'^admin/', admin.site.urls),
     url(r'^relatoriosvendas/$', views.relatoriosvendas, name="relaoriosvendas"),
+    url(r'^GerenciarVendas/$', views.GerenciarVendas, name="GerenciarVendas")
 ]
