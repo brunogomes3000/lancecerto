@@ -9,7 +9,6 @@ def index(request):
 def login(request):
     return render(request, 'login.html')
 
-
 def relatoriosvendas(request):
     return render(request, 'relatoriosvendas.html')
 
@@ -25,5 +24,3 @@ def produtos(request):
 
 def dados_prod(request):
     return render(request, 'dados_prod.html')
-
-# Create your views here.
