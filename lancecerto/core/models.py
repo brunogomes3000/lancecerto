@@ -20,9 +20,9 @@ class Usuario(models.Model):
 class Produtos(models.Model):
 	nome = models.CharField("Nome", max_length=100)
 	descricao = models.CharField("Descrição", max_length=500)
-	data_inicio = models.DateField('Data de Início', null=True, blank=True)
+	data_chegada = models.DateField('Chegada do Produto', null=True, blank=True)
 	imagem = models.ImageField(upload_to='img/cursos/', verbose_name='Imagem', default='img/cursos/noperfil.png', null=True, blank=True)
-	vagas = models.IntegerField('Vagas')
+	quantidade = models.IntegerField('Estoque')
 	data_criacao = models.DateField('Data de Criação', auto_now_add=True)
 	data_modificacao = models.DateField('Data de Modificação', auto_now=True)
 	def __str__(self):
