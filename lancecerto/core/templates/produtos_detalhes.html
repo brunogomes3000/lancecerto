@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+Detalhe do Produto | {{block.super}}
+{% endblock %}
+
+{% block bloco_variavel %}
+
+	<div class="container">
+		<div class="row mt">
+			<div class="col-lg-8">
+				<h1>Nome do Produto</h1>
+				<hr>
+				<h3><b>PREÇO</b></h3>
+				<p>X R$</p>
+				<br>
+				<h3><b>DESCRIÇÃO</b></h3>
+				<p>Descrição do Produto.</p>
+				<br>
+				<h3><b>VENDEDOR</b></h3>
+				<p>Nome</p>
+				<p>Perfil</p>
+				<br>
+				<h3><b>CATEGORIAS</b></h3>
+				<ul>
+				<li>Categoria</li>
+				</ul>
+				<br>
+			</div>
+			<div class="col-lg-4">
+				<br/>
+				<img src="http://placehold.it/400x300"><br/><br/>
+				<a href="#"><button type="button" class="btn btn-green">Comprar</button></a>
+			</div>
+		</div>
+		<div class="row mt">
+		<div class="col-lg-12">
+			<hr/>
+			<p>Data de cadastro do Produto: xx/xx/xxxx</p>
+			<p>Última modificação: xx/xx/xxxx</p>
+		</div>
+			
+		</div>
+	</div>
+
+{% endblock %}

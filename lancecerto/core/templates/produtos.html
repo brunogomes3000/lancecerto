@@ -30,15 +30,20 @@
 
 {% block bloco_variavel %}
 
-      <h1 class="my-4 text-center text-lg-left">Thumbnail Gallery</h1>
+<h1 class="my-4 text-center text-lg-left">Produtos</h1>
 
-      <div class="row text-center text-lg-left">
+<div class="row mt">
+{% for produto in produtos %}
 
-        <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="{% url 'dados_prod' %}" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-          </a>
-        </div>
+    
+      <div class="col-lg-6">
+        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+        <h3><a href="{% url 'produtos_detalhes' %}?id={{produto.id}}">{{produto.nome}}</a></h3>
+        <p><a href="{% url 'produtos_detalhes' %}?id={{produto.id}}"><i class="fa fa-link"></i>Saiba mais</a></p><br/>
       </div>
+    
+
+{% endfor %}
+</div>
 
 {% endblock %}
