@@ -7,7 +7,7 @@
 
 {% block item_ativo %}
 
-			<li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="{% url 'index' %}">Início
           <span class="sr-only">(current)</span>
         </a>
@@ -27,15 +27,24 @@
         </a>
       </li>
 
-
 {% endblock %}
 
 
 {% block bloco_variavel %}
 
-<p class="text-centere">
-  <a href="# class="btn btn-lg btn-primary btn-3d">ADCIONAR</a>
-</p>
+<br/>
+<div class="container">
+  <button type="button" class="btn btn-outline-primary">Adcionar</button>
+</div>
+<br/>
 
+{% for x in produtos %}
+<!--
+<div class="col-lg-4">
+  <img src="{{x.imagem.url}}">
+  <h3><a href="#">{{x.nome}}</a>
+</div>
+-->
+{% endfor %}
 
 {% endblock %}
