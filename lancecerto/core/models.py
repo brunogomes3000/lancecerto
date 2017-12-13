@@ -24,17 +24,18 @@ class Categoria(models.Model):
 	def __str__(self):
 		return self.descricao
 	class Meta:
-		verbose_name = 'Categoria'
-		verbose_name_plural = 'Categoria'
+		verbose_name = 'Categorias'
+		verbose_name_plural = 'Categorias'
 
 class Produtos(models.Model):
 	nome = models.CharField("Nome", max_length=100)
-	descricao = models.CharField("Descrição", max_length=500)
+	descricao = models.CharField('Descrição', max_length=500)
+	preco = models.CharField('Preço', max_length=50, null=True)
 	imagem = models.ImageField(upload_to='static/img/', verbose_name='Imagem', default='static/img/noperfil.png', null=True, blank=True)
 	quantidade = models.IntegerField('Quantidade', null=True)
-	data_criacao = models.DateField('Data de Criação', auto_now_add=True)
-	cpf_vendedor = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True)
-	vendedor = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='vendedor_produto', null=True)
+	data_cadastro = models.DateField('Data de Cadastro', auto_now_add=True)
+	data_modificacao = models.DateField('Data de Modificação', auto_now=True)
+	vendedor = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True)
 	categoria = models.ManyToManyField(Categoria)
 	def __str__(self):
 		return self.nome

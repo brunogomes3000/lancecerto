@@ -10,21 +10,25 @@ Detalhe do Produto | {{block.super}}
 	<div class="container">
 		<div class="row mt">
 			<div class="col-lg-8">
-				<h1>Nome do Produto</h1>
+				<br/>
+				<h1>{{produtos.nome}}</h1>
 				<hr>
 				<h3><b>PREÇO</b></h3>
-				<p>X R$</p>
+				<p>{{produtos.preco}} R$</p>
 				<br>
 				<h3><b>DESCRIÇÃO</b></h3>
-				<p>Descrição do Produto.</p>
+				<p>{{produtos.descricao}}</p>
 				<br>
 				<h3><b>VENDEDOR</b></h3>
-				<p>Nome</p>
-				<p>Perfil</p>
+				<p>{{produtos.vendedor}}</p>
 				<br>
 				<h3><b>CATEGORIAS</b></h3>
 				<ul>
-				<li>Categoria</li>
+
+				{% for cat in produtos.categoria.all %}
+					<li>{{cat}}</li>	
+				{% endfor %}
+				
 				</ul>
 				<br>
 			</div>
@@ -37,8 +41,8 @@ Detalhe do Produto | {{block.super}}
 		<div class="row mt">
 		<div class="col-lg-12">
 			<hr/>
-			<p>Data de cadastro do Produto: xx/xx/xxxx</p>
-			<p>Última modificação: xx/xx/xxxx</p>
+			<p>Data de cadastro do Produto: {{produtos.data_cadastro}}</p>
+			<p>Última modificação: {{produtos.data_modificacao}}</p>
 		</div>
 			
 		</div>

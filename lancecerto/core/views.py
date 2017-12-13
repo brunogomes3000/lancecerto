@@ -24,9 +24,6 @@ def cadastro(request):
 def gerenciarvendas(request):
 	return render(request, 'GerenciarVendas.html')
 
-def produtos(request):
-    return render(request, 'produtos.html')
-
 def dados_prod(request):
     return render(request, 'dados_prod.html')
 # Create your views here.
@@ -42,7 +39,7 @@ def produtos_detalhes(request):
 	id_produto = request.GET.get("id")
 	produtos = Produtos.objects.get(id=id_produto)
 	context = {
-		'produto': produto
+		'produtos': produtos
 	}
 	return render(request, 'produtos_detalhes.html', context)
 
