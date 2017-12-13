@@ -11,12 +11,12 @@ def login(request):
     return render(request, 'login.html')
 
 def relatoriosvendas(request):
-    return render(request, 'relatoriosvendas.html')
+    return render(request, 'RelatoriosVendas.html')
 
 def cadastro(request):
     return render(request, 'cadastro.html')
 
-def GerenciarVendas(request):
+def gerenciarvendas(request):
 	return render(request, 'GerenciarVendas.html')
 
 def produtos(request):
@@ -40,3 +40,4 @@ def produtos_detalhes(request):
 		'produto': produto
 	}
 	return render(request, 'produtos_detalhes.html', context)
+
