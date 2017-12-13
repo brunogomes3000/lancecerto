@@ -5,7 +5,12 @@ from django.shortcuts import render
 from .models import Produtos
 
 def index(request):
-    return render(request, 'index.html')
+	produtos = Produtos.objects.all().order_by('-id')[:3]
+	context = {
+		'produtos': produtos
+
+	}
+	return render(request, 'index.html', context)
 
 def login(request):
     return render(request, 'login.html')
@@ -35,7 +40,7 @@ def produtos(request):
 
 def produtos_detalhes(request):
 	id_produto = request.GET.get("id")
-	produto = Produtos.objects.get(id=id_produto)
+	produtos = Produtos.objects.get(id=id_produto)
 	context = {
 		'produto': produto
 	}
