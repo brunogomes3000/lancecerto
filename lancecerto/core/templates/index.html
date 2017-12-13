@@ -91,4 +91,16 @@
       </div>
       <!-- /.row -->
 
+      <hr>
+
+{% for produto in produtos %}
+      <div class="row mt">
+        <div class="col-lg-4">
+          <img class="img-responsive" src="{{produto.imagem.url}}" alt="">
+          <h3><a href="{% url 'produtos_detalhes' %}?id={{produto.id}}">{{produto.nome}}</a></h3>       
+
+
+      </div>
+{% endfor %}
+
 {% endblock %}
