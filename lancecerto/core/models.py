@@ -19,6 +19,13 @@ class Usuario(models.Model):
 		verbose_name = 'Usuario'
 		verbose_name_plural = 'Usuarios'
 
+class Categoria(models.Model):
+	descricao = models.CharField("Nome", max_length=100)
+	def __str__(self):
+		return self.descricao
+	class Meta:
+		verbose_name = 'Categoria'
+		verbose_name_plural = 'Categoria'
 
 class Produtos(models.Model):
 	nome = models.CharField("Nome", max_length=100)
@@ -28,6 +35,7 @@ class Produtos(models.Model):
 	data_criacao = models.DateField('Data de Criação', auto_now_add=True)
 	cpf_vendedor = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True)
 	vendedor = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='vendedor_produto', null=True)
+	categoria = models.ManyToManyField(Categoria)
 	def __str__(self):
 		return self.nome
 	class Meta:
