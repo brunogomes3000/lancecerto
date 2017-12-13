@@ -42,7 +42,7 @@ def produtos_detalhes(request):
 	id_produto = request.GET.get("id")
 	produtos = Produtos.objects.get(id=id_produto)
 	context = {
-		'produto': produto
+		'produtos': produtos
 	}
 	return render(request, 'produtos_detalhes.html', context)
 
