@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+Sucesso | {{block.super}}
+{% endblock %}
+
+{% block bloco_variavel %}
+<h1 class="centered">Cadastro de Usuário</h1><br>
+<hr>
+<div class="container">
+	<div class="row mt">
+		<h3>Seu cadastro foi realizado com sucesso! <a href="{% url 'login' %}">Clique aqui para realizar a autenticação.</a>/h3>
+	</div>
+</div>
+
+{% endblock %}

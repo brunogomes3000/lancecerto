@@ -18,7 +18,7 @@
               <a class="nav-link" href="#">Contatos</a>
             </li> &nbsp; &nbsp; &nbsp; &nbsp; 
             <li class="nav-item">
-              <a class="nav-link btn" href="{% url 'login' %}">Fazer Login
+              <a class="nav-link btn" href="{% url 'login' %}">Autenticar
               </a>
             </li>
             <li class="nav-item">
@@ -31,6 +31,28 @@
 {% block bloco_variavel %}
 
 <h1 class="my-4 text-center text-lg-left">Produtos</h1>
+
+<hr/>
+
+<form method="get" action="{% url 'produtos' %}">
+  <p> Filtros -- 
+  Nome: <input type="text" name="nomeget"/> |
+  Categoria: <select name="categoriaget"> 
+    <option value=""></option>
+    {% for cat in categoria %}
+    <option value="{{cat.id}}">{{cat.descricao}}</option>
+    {% endfor %}
+  </select> |
+  <button type="submit">Buscar</button></p>
+</form>
+<hr/>
+    
+
+  </select>
+
+
+
+</form>
 
 <div class="row mt">
 {% for produto in produtos %}
@@ -48,5 +70,14 @@
 
 {% endfor %}
 </div>
+
+<ul class="pagination">
+{% for i in produtos.paginator.page_range %}
+  {% if produtos.number == i %}
+    <li class="active"><span>{{ i }}<span class="sr-only">(current)</span></span></li>
+  {% else %}
+    <li><a href="?page={{ i }}">{{ i }}</a></li>
+  {% endif %}
+{% endfor %}
 
 {% endblock %}

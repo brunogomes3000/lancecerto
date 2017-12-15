@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+Produtos | {{ block.super }}
+{% endblock %}
+
+{% block bloco_variavel %}
+
+<h1 class="centered">Contato</h1><br>
+<hr>
+<div class="container">
+	<div class="row mt">
+		{% if sucesso %}
+		<div class="alert alert-success">Mensagem enviada com sucesso!
+		</div>
+		{% endif %}
+		<form action="{% url 'contato' %}" method="post">
+			{% csrf_token %}
+			{{ formulario.as_p }}
+			<p><input type="submit" value="Enviar" /></p>
+		</form>
+	</div>	
+</div>
+{% endblock %}

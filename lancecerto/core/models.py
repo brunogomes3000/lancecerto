@@ -2,17 +2,20 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Usuario(models.Model):
 	cpf = models.CharField('CPF', primary_key=True, max_length=11)
 	nome = models.CharField('Nome', max_length=200)
 	administrador = models.BooleanField('ADM')
+	perfil = models.CharField('Perfil', max_length=500)
 	imagem_perfil = models.ImageField(upload_to='img/usuarios/', verbose_name='Imagem de Perfil', default='img/usuarios/noperfil.png', null=True, blank=True)
 	email = models.CharField('E-mail', max_length=100)
 	celular = models.CharField('Celular', max_length=11)
 	senha = models.CharField('senha', max_length=100)
 	residencial = models.CharField('Residêncial', max_length=11)
+	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	def __str__(self):
 		return self.nome
 	class Meta:
@@ -24,7 +27,7 @@ class Categoria(models.Model):
 	def __str__(self):
 		return self.descricao
 	class Meta:
-		verbose_name = 'Categorias'
+		verbose_name = 'Categoria'
 		verbose_name_plural = 'Categorias'
 
 class Produtos(models.Model):

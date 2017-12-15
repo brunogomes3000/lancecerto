@@ -21,10 +21,8 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Contatos</a>
             </li> &nbsp; &nbsp; &nbsp; &nbsp; 
-            <li class="nav-item active">
-              <a class="nav-link btn" href="{% url 'login' %}">Fazer Login
-              	<span class="rs-only"></span>
-              </a>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Autenticar</a>
             </li>
             <li class="nav-item">
               <a class="nav-link btn" href="{% url 'cadastro' %}">Cadastre-se</a>
@@ -40,18 +38,32 @@
 	<h3>Autenticação</h3><br />
 	<hr />
 		<div class="container">
-			<form method="POST" name="flogin" id="flogin" >
-			<label>Nome do usuário:</label>
-			<input type="text" name="login" class="form-control">
-			<label>Senha:</label>
-			<input type="password" name="password" class="form-control">
 			
-      <a href="{% url 'login' %}"><input type="submit" class="btn btn-success" value="Fazer Login"></a>
-      
-      <br />
+    {% if form.errors %}
+    <div class="alert alert-danger">
+      <p>Usuário ou senha inválida. Tente novamente.</p> 
+    </div>
+    {% endif %}
 
-      <a href="#"><small>Esqueceu sua senha?</small></a>
+    {% if next %}
+    <div class="alert alert-danger">
+    {% if user.is_authenticated %}
+    <p>Sua conta não tem permissão para acessar esta página. Realize o login com outra conta.</p>
+    {% else %}
+    <p>Realize o login para acessar esta página.</p>
+    {% endif %}
+    </div>
+    {% endif %}
 
+
+
+      <form action="{% url 'login' %}" method="POST">
+      {% csrf_token %}
+      <p>{{form.username.label}}: {{ form.username }}</p>
+      <p>{{form.password.label}}: {{ form.password }}</p>
+      <p><input class="btn btn-success" type="submit" value="Enviar" ></p>
+      </form>
+    
 		</div>
 	</div>
 

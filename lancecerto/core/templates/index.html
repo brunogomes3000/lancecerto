@@ -35,6 +35,27 @@
       </div>
       <!-- /.row -->
 
+      <hr/>
+
+      <h3 class="my-4">Produtos Recentes</h3>
+      
+      <div class="row mt">
+      {% for produto in produtos %}
+        <div class="col-lg-6">
+          <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+          <h3><a href="{% url 'produtos_detalhes' %}?id={{produto.id}}">{{produto.nome}}</a></h3>
+          <p><a href="{% url 'produtos_detalhes' %}?id={{produto.id}}"><i class="fa fa-link"></i>Saiba mais</a></p><br/>
+
+        </div>
+
+        {% empty %}
+        <p>Nenhum produto cadastrado.</p>
+        
+      {% endfor %}
+      </div>
+
+      <hr/>
+
       <!-- Related Projects Row -->
       <h3 class="my-4">Categorias</h3>
 
@@ -91,7 +112,7 @@
       </div>
       <!-- /.row -->
 
-   
+      
 
 
 

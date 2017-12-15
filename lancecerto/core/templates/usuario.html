@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+Página de Usuário| {{ block.super }}
+{% endblock %}
+
+{% block bloco_variavel %}
+
+<h1 class="centered">Página de Usuário</h1><br>
+<hr>
+<div class="container">
+	<div class="row mt">
+		<p>Olá {{user}}</p>
+	</div>
+</div>
+{%  endblock %}
