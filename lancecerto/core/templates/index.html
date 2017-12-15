@@ -42,7 +42,7 @@
       <div class="row mt">
       {% for produto in produtos %}
         <div class="col-lg-6">
-          <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+          <img class="img-responsive" src="http://placehold.it/300x200" alt="">
           <h3><a href="{% url 'produtos_detalhes' %}?id={{produto.id}}">{{produto.nome}}</a></h3>
           <p><a href="{% url 'produtos_detalhes' %}?id={{produto.id}}"><i class="fa fa-link"></i>Saiba mais</a></p><br/>
 
@@ -68,7 +68,7 @@
         </div>
 
         <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
+          <a class href="#">
             <img class="img-fluid" src="http://placehold.it/500x300" alt="">
           </a>
         </div>
