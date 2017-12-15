@@ -10,4 +10,4 @@ class ContatoForm(forms.Form):
 class UsuarioModelForm(forms.ModelForm):
 	class Meta:
 		model = Usuario
-		fields =  ['nome', 'perfil', 'imagem_perfil', 'email', 'celular', 'residencial']
+		fields =  ['nome', 'perfil', 'administrador', 'imagem_perfil', 'email', 'celular', 'residencial']

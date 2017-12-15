@@ -39,7 +39,7 @@ def cadastro(request):
 		if form.is_valid():
 			user_post = UserCreationForm(request.POST)
 			user = user_post.save(commit=False)
-			user.set_password(user_post.cleaned_data['password'])
+			user.set_password(user_post.cleaned_data['password1'])
 			user.save()
 
 			if form2.is_valid():
