@@ -38,4 +38,5 @@ urlpatterns = [
     url(r'^sair/$', logout, {'next_page': '/'}, name="logout"),
     url(r'^sucesso/$', views.sucesso, name="sucesso"),
 
+    url(r'^carrinho/$', views.carrinho, name="carrinho"),
 ]

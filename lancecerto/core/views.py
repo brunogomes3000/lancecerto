@@ -132,3 +132,33 @@ def usuario(request):
 
 def sucesso(request):
 	return render(request, 'sucesso.html')
+
+def carrinho(request):
+
+	lista_carrinhos = []
+
+	if 'carrinhos' in request.session:
+		lista_carrinhos = request.session['carrinhos']
+
+	if request.method == 'GET':
+		if 'op' in request.GET:
+			if request.GET.get("op") == 'adicionar':
+				if 'id' in request.GET:
+					id_produto = request.GET.get("id")
+					produto = Produto.objects.get(id=id_produto) 
+					lista_carrinhos.append([id_produto, produto.nome])
+					request.session['carrinhos'] = lista_carrinhos
+					return redirect('/carrinho')
+			elif request.GET.get("op") == 'remover':
+				if 'id' in request.GET:
+					id_produto_remover = request.GET.get("id")
+					cont = 0
+					for produto in lista_carrinhos:
+						if produto[0] == id_produto_remover:
+							del lista_carrinhos[cont]
+						cont+=1
+					request.session['carrinhos'] = lista_carrinhos
+					return redirect('/carrinho')
+
+
+	return render(request, 'carrinho.html')
