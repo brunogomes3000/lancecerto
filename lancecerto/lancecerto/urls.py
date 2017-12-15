@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from core import views
+from django.contrib.auth.views import login
+from django.contrib.auth.views import logout
 
 urlpatterns = [
 	url(r'^$', views.index, name="index"),
-	url(r'^login/$', views.login, name="login"),
+	#url(r'^login/$', views.login, name="login"),
     url(r'^cadastro/$', views.cadastro, name="cadastro"),
     url(r'^produtos/$', views.produtos, name="produtos"),
     url(r'^dados_prod/$', views.dados_prod, name="dados_prod"),
@@ -28,5 +30,12 @@ urlpatterns = [
     url(r'^produtos_detalhes/$', views.produtos_detalhes, name="produtos_detalhes"),
     url(r'^relatoriosvendas/$', views.relatoriosvendas, name="relaoriosvendas"),
     url(r'^gerenciarvendas/$', views.gerenciarvendas, name="gerenciarvendas"),
-    
+
+    url(r'^contato/$', views.contato, name="contato"),
+    url(r'^usuario/$', views.usuario, name="usuario"),
+
+    url(r'^login/$', login, {'template_name': 'login.html'}, name="login"),
+    url(r'^sair/$', logout, {'next_page': '/'}, name="logout"),
+    url(r'^sucesso/$', views.sucesso, name="sucesso"),
+
 ]

@@ -122,3 +122,10 @@ STATIC_URL = '/static/'
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = ('usuario')
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'lancecertooficial@gmail.com'
+EMAIL_HOST_PASSWORD = 'ifrn.4321'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'jeffersoncypri@gmail.com'
