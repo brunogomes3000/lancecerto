@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+Sucesso | {{ block.super }}
+{% endblock %}
+
+{ block bloco_variavel}
+
+<h1 class="centered">Compra Confirmada</h1><br/>
+<hr/>
+<div class="container">
+	<div class="row mt">
+		<h3>Sua compra foi confirmada com sucesso<a href="{% url 'usuario' %}">Clique aqui para acessar sua página pessoal.</a></h3>
+	</div>
+</div>

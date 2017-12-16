@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+Carrinho de Compras | {{ block.super}}
+{endblock}
+
+{block bloco_variavel}
+
+<h1 class="centered">Confirmação de Inscrição</h1><br/>
+<hr/>
+<div class="container">
+	<div class="row mt">
+	{% for produto in lista_produto %}
+		<div class="col-lg-4">
+			<img class="img-responsive" src="{{produto.imagem.url}}" alt="">
+			<h3>{{produto.nome}}</h3>
+			<p>{{produto.descricao}}</p>
+			
+			<div>
+				{% empty %}
+				<p>Nenhum produto Selecionado.</p>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<p class="pull-left"><br/>
+		Revise os produtos que deseja comprar, e realize a confirmação da compra!<br/><br/>
+		<a href="{% url 'carrinho' %}"><button type="button" class="bnt">Retorna ao Carrinho</button></a>
+		<a href="{% url 'compra_produto'}"><button type="button" class="bnt bnt-green">Confirma Cmpra</button></a>
+	</p>
+</div>
+{% endblock %}

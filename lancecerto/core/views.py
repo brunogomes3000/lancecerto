@@ -162,3 +162,36 @@ def carrinho(request):
 
 
 	return render(request, 'carrinho.html')
+
+@login_required(login_url='login?next=/compra_confirmacao')
+def compra_confirmacao (request):
+
+	lista_carrinhos = []
+	listar_produto = []
+	if 'carrinhos' in request.session:
+		lista_carrinhos = request.session['carrinhos']
+		for c1 in lista_carrinhos:
+			produto = Produto.objects.get(id=c1[0])
+			listar_produto.append(produto)
+
+	context = {
+		'lista_produto': listar_produto,
+	}
+	return render(request, 'compra_confirmacao.html')
+
+@login_required(login_url='login')
+def compra_produto (request):
+	lista_carrinhos = []
+	
+	login = request.user
+	usuario = Usuario.objects.get(user=login)
+
+	if 'carrinhos' in request.session:
+		lista_carrinhos = request.session['carrinhos']
+		for c1 in lista_carrinhos:
+			produto = Produto.objects.get(id=c1[0])
+			produto.inscritos.add(usuario)
+			produto.save()
+	del request.session['carrinhos']
+	return render(request, 'sucesso_compra_produtos.html')
+
