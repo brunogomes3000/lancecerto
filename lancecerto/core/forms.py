@@ -4,7 +4,7 @@ from .models import Usuario
 
 class ContatoForm(forms.Form):
 	nome = forms.CharField(label='Nome')
-	enail = forms.EmailField(label='E-mail')
+	email = forms.EmailField(label='E-mail')
 	mensagem = forms.CharField(label='Mensagem', widget=forms.Textarea())
 
 class UsuarioModelForm(forms.ModelForm):

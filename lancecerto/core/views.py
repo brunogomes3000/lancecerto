@@ -145,7 +145,7 @@ def carrinho(request):
 			if request.GET.get("op") == 'adicionar':
 				if 'id' in request.GET:
 					id_produto = request.GET.get("id")
-					produto = Produto.objects.get(id=id_produto) 
+					produto = Produtos.objects.get(id=id_produto) 
 					lista_carrinhos.append([id_produto, produto.nome])
 					request.session['carrinhos'] = lista_carrinhos
 					return redirect('/carrinho')
@@ -194,4 +194,27 @@ def compra_produto (request):
 			produto.save()
 	del request.session['carrinhos']
 	return render(request, 'sucesso_compra_produtos.html')
+
+def finalizar_compra(request):
+
+	lista_carrinhos = []
+	produtos = []
+
+	if 'carrinhos' in request.session:
+		lista_carrinhos = request.session['carrinhos']
+		for c1 in lista_carrinhos:
+			produto = Produto.objects.get(id=c1[0])
+			produtos.append(produto)
+		pedido = Pedido()
+		pedido.usuario = usuario.user
+
+		pp = Pedido_Produto()
+
+		for p1 in produtos:
+			pp.pedido = pedido
+			pp.produto = p1
+
+		pedido.save()
+		pp.save()
+
 

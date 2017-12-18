@@ -46,3 +46,5 @@ class Produtos(models.Model):
 		verbose_name = 'Produto'
 		verbose_name_plural = 'Produtos'
 
+
+
