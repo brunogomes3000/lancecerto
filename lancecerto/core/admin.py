@@ -16,3 +16,7 @@ class ProdutoAdim(admin.ModelAdmin):
 admin.site.register(Usuario)
 admin.site.register(Produtos, ProdutoAdim)
 admin.site.register(Categoria)
+
+
+
+
