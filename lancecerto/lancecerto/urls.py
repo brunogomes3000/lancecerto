@@ -40,5 +40,7 @@ urlpatterns = [
 
     url(r'^carrinho/$', views.carrinho, name="carrinho"),
     url(r'^compra_confirmacao/$', views.compra_confirmacao, name="compra_confirmacao"),
-    
+
+
+    url(r'^finalizar_compra/$', views.finalizar_compra, name="finalizar_compra"),
 ]

@@ -29,7 +29,7 @@ Carrinho de Compras | {{ block.super }}
 		<p class="pull-left"><br>
 		<a href="{% url 'produtos' %}"><button type="button" class="btn">Continuar Pesquisando</button></a>
 		<a href=""><button type="button" class="btn">Atualizar Carrinho</button></a>
-		<a href=""><button type="button" class="btn btn-green">Finalizar Compras</button></a>
+		<a href="{% url 'finalizar_compra' %}"><button type="button" class="btn btn-green">Finalizar Compras</button></a>
 		</p>
 	</div>
 </div>

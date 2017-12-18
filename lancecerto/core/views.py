@@ -171,7 +171,7 @@ def compra_confirmacao (request):
 	if 'carrinhos' in request.session:
 		lista_carrinhos = request.session['carrinhos']
 		for c1 in lista_carrinhos:
-			produto = Produto.objects.get(id=c1[0])
+			produto = Produtos.objects.get(id=c1[0])
 			listar_produto.append(produto)
 
 	context = {
@@ -189,12 +189,13 @@ def compra_produto (request):
 	if 'carrinhos' in request.session:
 		lista_carrinhos = request.session['carrinhos']
 		for c1 in lista_carrinhos:
-			produto = Produto.objects.get(id=c1[0])
+			produto = Produtos.objects.get(id=c1[0])
 			produto.inscritos.add(usuario)
 			produto.save()
 	del request.session['carrinhos']
 	return render(request, 'sucesso_compra_produtos.html')
 
+@login_required(login_url='login')
 def finalizar_compra(request):
 
 	lista_carrinhos = []
@@ -203,18 +204,15 @@ def finalizar_compra(request):
 	if 'carrinhos' in request.session:
 		lista_carrinhos = request.session['carrinhos']
 		for c1 in lista_carrinhos:
-			produto = Produto.objects.get(id=c1[0])
+			produto = Produtos.objects.get(id=c1[0])
 			produtos.append(produto)
 		pedido = Pedido()
-		pedido.usuario = usuario.user
-
+		pedido.usuario = request.user
 		pp = Pedido_Produto()
-
+		pedido.save()
+		
 		for p1 in produtos:
 			pp.pedido = pedido
 			pp.produto = p1
-
-		pedido.save()
 		pp.save()
-
-
+		return render(request, 'sucesso_compra_produtos.html')

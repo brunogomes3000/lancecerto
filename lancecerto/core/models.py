@@ -46,5 +46,11 @@ class Produtos(models.Model):
 		verbose_name = 'Produto'
 		verbose_name_plural = 'Produtos'
 
+class Pedido(models.Model):
+	usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+	data_criacao = models.DateField('Data de Criação', auto_now_add=True)
 
+class Pedido_Produto(models.Model):
+	id_produto = models.ForeignKey(Produtos, on_delete=models.CASCADE, null=True)
+	id_pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE, null=True)
 
