@@ -43,4 +43,5 @@ urlpatterns = [
 
 
     url(r'^finalizar_compra/$', views.finalizar_compra, name="finalizar_compra"),
+     url(r'^cadastro_produto/$', views.cadastro_produto, name="cadastro_produto"),
 ]

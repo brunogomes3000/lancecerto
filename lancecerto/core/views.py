@@ -13,6 +13,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect 
 from django.contrib.auth.models import Group
 from .forms import UsuarioModelForm
+from .forms import ProdutoModelForm
+
 
 def index(request):
 	produtos = Produtos.objects.all().order_by('-id')[:3]
@@ -216,3 +218,14 @@ def finalizar_compra(request):
 			pp.produto = p1
 		pp.save()
 		return render(request, 'sucesso_compra_produtos.html')
+
+def cadastro_produto(request):
+	form = ProdutoModelForm(request.POST or None)
+	context = {
+		'form': form
+	}
+	if request.method == 'POST':
+		if form.is_valid():
+			form.save()
+			
+	return render(request, 'cadastro_produto.html')
