@@ -39,20 +39,24 @@
 
       <h3 class="my-4">Produtos Recentes</h3>
       
-      <div class="row mt">
-      {% for produto in produtos %}
-        <div class="col-lg-6">
-          <img class="img-responsive" src="http://placehold.it/300x200" alt="">
-          <h3><a href="{% url 'produtos_detalhes' %}?id={{produto.id}}">{{produto.nome}}</a></h3>
-          <p><a href="{% url 'produtos_detalhes' %}?id={{produto.id}}"><i class="fa fa-link"></i>Saiba mais</a></p><br/>
+      <div class="row">
+{% for produto in produtos %}
 
+    
+      <div class="col-md-3">
+        <div class="produto">
+        <div class="pic"><img class="img-fluid" src="{{ produto.imagem.url }}" alt=""></div>
+        <h3><a href="{% url 'produtos_detalhes' %}?id={{produto.id}}">{{produto.nome}}</a></h3>
+        <p><a href="{% url 'produtos_detalhes' %}?id={{produto.id}}"><i class="fa fa-link"></i>Saiba mais</a></p><br/>
         </div>
-
-        {% empty %}
-        <p>Nenhum produto cadastrado.</p>
-        
-      {% endfor %}
       </div>
+
+{% empty %}
+<p>Nenhum produto cadastrado.</p>
+    
+
+{% endfor %}
+</div>
 
       <hr/>
 

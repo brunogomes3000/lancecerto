@@ -9,7 +9,7 @@ Página de Usuário| {{ block.super }}
 
 <h1 class="centered">Página de Usuário</h1><br>
 <hr>
-<div class="container">
+
 	<div class="row mt">
 		<div class="col-md-6">
 			<p>Olá {{user}}</p>
@@ -20,23 +20,29 @@ Página de Usuário| {{ block.super }}
 	</div>
 	<hr>
 	<h1>Meus Produtos</h1>
+
+	<div class="row">
+
 	{% for produto in produtos %}
 
     
-      <div class="col-lg-6">
-        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+      <div class="col-md-3">
+        <div class="produto">
+        <div class="pic"><img class="img-fluid" src="{{ produto.imagem.url }}" alt=""></div>
         <h3><a href="{% url 'produtos_detalhes' %}?id={{produto.id}}">{{produto.nome}}</a></h3>
         <p><a href="{% url 'produtos_detalhes' %}?id={{produto.id}}"><i class="fa fa-link"></i>Saiba mais</a></p><br/>
+        </div>
       </div>
 
 	{% empty %}
 	<p>Nenhum produto cadastrado.</p>
     
+    
 
 	{% endfor %}
 
-
 </div>
+
 
 
 
