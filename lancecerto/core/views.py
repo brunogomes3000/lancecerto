@@ -230,6 +230,9 @@ def finalizar_compra(request):
 		return render(request, 'sucesso_compra_produtos.html')
 
 def cadastro_produto(request):
+	id_usuario = request.user
+	usuario = Usuario.objects.get(user=id_usuario)
+
 	form = ProdutoModelForm(request.POST or None)
 	context = {
 		'form': form
@@ -238,4 +241,5 @@ def cadastro_produto(request):
 		if form.is_valid():
 			form.save()
 			
-	return render(request, 'cadastro_produto.html')
+	return render(request, 'cadastro_produto.html', context)
+

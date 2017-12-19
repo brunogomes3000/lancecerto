@@ -16,4 +16,4 @@ class UsuarioModelForm(forms.ModelForm):
 class ProdutoModelForm(forms.ModelForm):
 	class Meta: 
 		model = Produtos
-		fields = ['nome']
+		fields = '__all__'
