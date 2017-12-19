@@ -1,32 +1,6 @@
 {% extends "base.html" %}
 
 
-{% block item_ativo %}
-
-			<li class="nav-item">
-              <a class="nav-link" href="{% url 'index' %}">Início</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Quem Somos</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'produtos' %}">Produtos
-              <span class="rs-only"></span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contatos</a>
-            </li> &nbsp; &nbsp; &nbsp; &nbsp; 
-            <li class="nav-item">
-              <a class="nav-link btn" href="{% url 'login' %}">Autenticar
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link btn" href="{% url 'cadastro' %}">Cadastre-se</a>
-            </li>
-
-
-{% endblock %}
 
 {% block bloco_variavel %}
 
@@ -54,14 +28,16 @@
 
 </form>
 
-<div class="row mt">
+<div class="row">
 {% for produto in produtos %}
 
     
-      <div class="col-lg-6">
-        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+      <div class="col-md-3">
+        <div class="produto">
+        <div class="pic"><img class="img-fluid" src="{{ produto.imagem.url }}" alt=""></div>
         <h3><a href="{% url 'produtos_detalhes' %}?id={{produto.id}}">{{produto.nome}}</a></h3>
         <p><a href="{% url 'produtos_detalhes' %}?id={{produto.id}}"><i class="fa fa-link"></i>Saiba mais</a></p><br/>
+        </div>
       </div>
 
 {% empty %}

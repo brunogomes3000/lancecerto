@@ -18,6 +18,8 @@ from django.contrib import admin
 from core import views
 from django.contrib.auth.views import login
 from django.contrib.auth.views import logout
+from django.conf import settings 
+from django.conf.urls.static import static
 
 urlpatterns = [
 	url(r'^$', views.index, name="index"),
@@ -43,4 +45,8 @@ urlpatterns = [
 
 
     url(r'^finalizar_compra/$', views.finalizar_compra, name="finalizar_compra"),
+
+
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

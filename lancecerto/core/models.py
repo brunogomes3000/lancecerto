@@ -34,7 +34,7 @@ class Produtos(models.Model):
 	nome = models.CharField("Nome", max_length=100)
 	descricao = models.CharField('Descrição', max_length=500)
 	preco = models.CharField('Preço', max_length=50, null=True)
-	imagem = models.ImageField(upload_to='static/img/', verbose_name='Imagem', default='static/img/noperfil.png', null=True, blank=True)
+	imagem = models.ImageField(upload_to='static/img/', verbose_name='Imagem Produto', default='static/img/noperfil.png', null=True, blank=True)
 	quantidade = models.IntegerField('Quantidade', null=True)
 	data_cadastro = models.DateField('Data de Cadastro', auto_now_add=True)
 	data_modificacao = models.DateField('Data de Modificação', auto_now=True)

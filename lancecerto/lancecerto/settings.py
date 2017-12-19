@@ -129,3 +129,7 @@ EMAIL_HOST_PASSWORD = 'ifrn.4321'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'jeffersoncypri@gmail.com'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'core', 'media')
+MEDIA_URL = '/media/'
+

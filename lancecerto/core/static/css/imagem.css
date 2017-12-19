@@ -1,0 +1,9 @@
+#team .produto .pic {
+	margin-bottom: : 0px;
+	overflow: hidden;
+	height: 150px;
+}
+
+#team .produto .pic img {
+	max-width: 100%;
+}
