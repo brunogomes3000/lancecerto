@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .models import Produtos
 from .models import Categoria
+from .models import Usuario
 from .forms import ContatoForm
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
@@ -128,7 +129,16 @@ def contato(request):
 
 @login_required(login_url='login')
 def usuario(request):
-	return render(request, 'usuario.html')
+	produtos = Produtos.objects.all()
+	id_usuario = request.user
+	usuario = Usuario.objects.get(user=id_usuario)
+
+	context = {
+		'usuario' : usuario,
+		'produtos': produtos,
+	}
+
+	return render(request, 'usuario.html', context)
 
 def sucesso(request):
 	return render(request, 'sucesso.html')
