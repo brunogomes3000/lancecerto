@@ -17,6 +17,7 @@ from .forms import UsuarioModelForm
 from .forms import ProdutoModelForm
 
 
+
 def index(request):
 	produtos = Produtos.objects.all().order_by('-id')[:3]
 	context = {
@@ -242,4 +243,5 @@ def cadastro_produto(request):
 			form.save()
 			
 	return render(request, 'cadastro_produto.html', context)
+
 

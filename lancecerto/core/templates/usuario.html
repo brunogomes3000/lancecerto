@@ -11,11 +11,17 @@ Página de Usuário| {{ block.super }}
 <hr>
 
 	<div class="row mt">
-		<div class="col-md-6">
+		<div class="col-md-3">
 			<p>Olá {{user}}</p>
 		</div>
-		<div class="col-md-6">
-			<a href=""><button type="button" class="btn">Cadastrar um Produto</button></a>
+		<div class="col-md-3">
+			
+		</div>
+		<div class="col-md-3">
+			
+		</div>
+		<div class="col-md-3">
+			<a href="{% url 'cadastro_produto' %}"><button type="button" class="btn">Cadastrar um Produto</button></a>
 		</div>
 	</div>
 	<hr>
