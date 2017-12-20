@@ -5,31 +5,7 @@
 {% endblock %}
 
 
-{% block item_ativo %}
 
-			      <li class="nav-item">
-              <a class="nav-link" href="{% url 'index' %}">Início</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Quem Somos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'produtos' %}">Produtos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contatos</a>
-            </li> &nbsp; &nbsp; &nbsp; &nbsp; 
-            <li class="nav-item">
-              <a class="nav-link btn" href="{% url 'login' %}">Fazer Login</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link btn" href="{% url 'cadastro' %}">Cadastre-se
-                <span class="rs-only"></span>
-              </a>
-            </li>
-
-
-{% endblock %}
 
 
 {% block bloco_variavel %}
@@ -61,11 +37,10 @@
         <form action="{% url 'cadastro' %}" method="post">
         {% csrf_token %}
         <h3>Dados de Autenticação</h3>
-        <p>{{form.email.label}}: {{form.email}}</p>
         <p>{{form.username.label}}: {{form.username}}</p>
         <p>{{form.password1.label}}: {{form.password1}}</p>
         <p>{{form.password2.label}}: {{form.password2}}</p>
-        <p><input type="submit" value="Enviar"></p>
+        
 
         <br>
 
@@ -77,6 +52,10 @@
         <p>{{form2.email.label}}: {{form2.email}}</p>
         <p>{{form2.celular.label}}: {{form2.celular}}</p>
         <p>{{form2.residencial.label}}: {{form2.residencial}}</p>
+
+        <br>
+
+        <p><input type="submit" value="Enviar"></p>
 
         <!--<p><input type="submit" value="Cadastrar"></p>-->
         </form>
