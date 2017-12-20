@@ -233,6 +233,7 @@ def finalizar_compra(request):
 def cadastro_produto(request):
 	id_usuario = request.user
 	usuario = Usuario.objects.get(user=id_usuario)
+	
 
 	form = ProdutoModelForm(request.POST or None)
 	context = {
