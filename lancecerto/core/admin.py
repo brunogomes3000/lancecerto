@@ -6,6 +6,10 @@ from django.contrib import admin
 from .models import Usuario
 from .models import Produtos
 from .models import Categoria
+from .models import Pedido
+from .models import Pedido_Produto
+
+
 
 class ProdutoAdin(admin.ModelAdmin):
 	list_display =['nome','preco','data_cadastro','vendedor','quantidade']
@@ -16,5 +20,7 @@ class ProdutoAdin(admin.ModelAdmin):
 admin.site.register(Usuario)
 admin.site.register(Produtos, ProdutoAdin)
 admin.site.register(Categoria)
+admin.site.register(Pedido)
+admin.site.register(Pedido_Produto)
 
 

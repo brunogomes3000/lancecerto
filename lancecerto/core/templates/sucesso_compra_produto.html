@@ -5,7 +5,7 @@
 Sucesso | {{ block.super }}
 {% endblock %}
 
-{ block bloco_variavel}
+{% block bloco_variavel %}
 
 <h1 class="centered">Compra Confirmada</h1><br/>
 <hr/>
@@ -14,3 +14,5 @@ Sucesso | {{ block.super }}
 		<h3>Sua compra foi confirmada com sucesso<a href="{% url 'usuario' %}">Clique aqui para acessar sua página pessoal.</a></h3>
 	</div>
 </div>
+
+{% endblock %}

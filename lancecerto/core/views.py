@@ -7,6 +7,8 @@ from django.conf import settings
 from .models import Produtos
 from .models import Categoria
 from .models import Usuario
+from .models import Pedido
+from .models import Pedido_Produto
 from .forms import ContatoForm
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
@@ -220,7 +222,8 @@ def finalizar_compra(request):
 			produto = Produtos.objects.get(id=c1[0])
 			produtos.append(produto)
 		pedido = Pedido()
-		pedido.usuario = request.user
+		usuario = Usuario.objects.get(user=request.user)
+		pedido.usuario = usuario
 		pp = Pedido_Produto()
 		pedido.save()
 		
@@ -228,12 +231,12 @@ def finalizar_compra(request):
 			pp.pedido = pedido
 			pp.produto = p1
 		pp.save()
-		return render(request, 'sucesso_compra_produtos.html')
+		return render(request, 'sucesso_compra_produto.html')
 
 def cadastro_produto(request):
 	id_usuario = request.user
 	usuario = Usuario.objects.get(user=id_usuario)
-	
+
 
 	form = ProdutoModelForm(request.POST or None)
 	context = {
