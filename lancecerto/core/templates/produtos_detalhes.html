@@ -35,7 +35,8 @@ Detalhe do Produto | {{block.super}}
 			</div>
 			<div class="col-lg-4">
 				<br/>
-				<img src="http://placehold.it/400x300"><br/><br/>
+
+				<img class="img-fluid" src="{{ produtos.imagem.url }}"><br/><br/>
 				<a href="{% url 'carrinho' %}?op=adicionar&id={{produtos.id}}"><button type="button" class="btn btn-green">Adicionar ao Carrinho</button></a>
 			</div>
 		</div>

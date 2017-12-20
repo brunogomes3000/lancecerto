@@ -131,9 +131,9 @@ def contato(request):
 
 @login_required(login_url='login')
 def usuario(request):
-	produtos = Produtos.objects.all()
 	id_usuario = request.user
 	usuario = Usuario.objects.get(user=id_usuario)
+	produtos = Produtos.objects.filter(vendedor = usuario)
 
 	context = {
 		'usuario' : usuario,
