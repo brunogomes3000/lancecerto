@@ -17,6 +17,7 @@ from .forms import UsuarioModelForm
 from .forms import ProdutoModelForm
 
 
+
 def index(request):
 	produtos = Produtos.objects.all().order_by('-id')[:3]
 	context = {
@@ -232,6 +233,7 @@ def finalizar_compra(request):
 def cadastro_produto(request):
 	id_usuario = request.user
 	usuario = Usuario.objects.get(user=id_usuario)
+	
 
 	form = ProdutoModelForm(request.POST or None)
 	context = {
@@ -242,4 +244,5 @@ def cadastro_produto(request):
 			form.save()
 			
 	return render(request, 'cadastro_produto.html', context)
+
 
